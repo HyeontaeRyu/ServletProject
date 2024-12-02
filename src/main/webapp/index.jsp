@@ -10,6 +10,6 @@
 <br/>
 <a href="hello-servlet">Hello Servlet 안녕</a>
 <br/>
-<a href="test">test</a>
+<a href="test">testaa</a>
 </body>
 </html>
