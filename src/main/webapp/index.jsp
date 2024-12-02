@@ -10,6 +10,9 @@
 <br/>
 <a href="hello-servlet">Hello Servlet 안녕</a>
 <br/>
-<a href="test">testaa</a>
+<a href="test">testaaa</a><br>
+<a href="response">날짜</a><br>
+<a href="loginForm.jsp">로그인폼</a> <br>
+<a href="sports.jsp">좋아하는 운동</a>
 </body>
 </html>

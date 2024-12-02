@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
-         version="6.0">
-    <servlet>
-        <servlet-name>test</servlet-name>
-        <servlet-class>com.test.TestServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/test</url-pattern>
-    </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  version="6.0"
+  xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+  <servlet>
+    <servlet-name>test</servlet-name>
+    <servlet-class>com.test.TestServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>sport</servlet-name>
+    <servlet-class>com.test.SportsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>sport</servlet-name>
+    <url-pattern>/sport</url-pattern>
+  </servlet-mapping>
 </web-app>
