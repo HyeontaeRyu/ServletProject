@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="maindb" uuid="aae1a50f-6720-4b72-afc9-a9a79e6ad6ea">
+    <data-source source="LOCAL" name="Oracle" uuid="f1d75673-adae-49a5-b189-33b621f90d7a">
       <driver-ref>oracle.19</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
-      <jdbc-url>jdbc:oracle:thin:@maindb_high?TNS_ADMIN=src/main/webapp/WEB-INF/lib/Wallet_maindb</jdbc-url>
+      <jdbc-url>jdbc:oracle:thin:@maindb_high?TNS_ADMIN=src/main/webapp/WEB-INF/Wallet_maindb</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
-        <property name="TNSADMIN_DIR" value="src/main/webapp/WEB-INF/lib/Wallet_maindb" />
+        <property name="TNSADMIN_DIR" value="$PROJECT_DIR$/src/main/webapp/WEB-INF/Wallet_maindb" />
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>

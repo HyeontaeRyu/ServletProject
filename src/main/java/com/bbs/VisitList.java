@@ -33,6 +33,7 @@ public class VisitList extends HttpServlet {
       }
       properties.load(input);
     }
+
     String driver = properties.getProperty("driver");
     String url = properties.getProperty("url");
     String username = properties.getProperty("username");

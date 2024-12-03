@@ -21,12 +21,14 @@ public class LoginServlet extends HttpServlet {
     try (PrintWriter out = response.getWriter()) {
       HttpSession session = request.getSession();
 
+
       if (session != null) {
         String sessionID = (String) session.getAttribute("user");
         out.println("<html>");
         out.println("<body>");
         out.println("<table width='300' border='1'>");
         out.println("<tr>");
+
         out.println(
             "<td width='300' align='center'>");
         out.println("세션 아이디 : " + sessionID);

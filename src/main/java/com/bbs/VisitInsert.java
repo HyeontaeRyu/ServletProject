@@ -28,10 +28,13 @@ public class VisitInsert extends HttpServlet {
       }
       properties.load(input);
     }
+    
     String driver = properties.getProperty("driver");
     String url = properties.getProperty("url");
     String username = properties.getProperty("username");
     String password = properties.getProperty("password");
+
+
     request.setCharacterEncoding("utf-8");
     String walletPath = getServletContext().getRealPath("/WEB-INF/lib/Wallet_maindb");
     System.setProperty("oracle.net.tns_admin", walletPath);
@@ -48,7 +51,7 @@ public class VisitInsert extends HttpServlet {
     PreparedStatement pstmt = null;
 
     try {
-      Class.forName("oracle.jdbc.OracleDriver");
+      Class.forName(driver);
 
       conn = DriverManager.getConnection(url, username, password);
 
