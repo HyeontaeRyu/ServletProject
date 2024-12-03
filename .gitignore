@@ -42,3 +42,4 @@ bin/
 .DS_Store
 
 src/main/webapp/WEB-INF/context.xml
+src/main/webapp/conf/db.properties
