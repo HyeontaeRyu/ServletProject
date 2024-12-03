@@ -46,7 +46,7 @@ public class VisitInsert extends HttpServlet {
 
     Connection conn = null;
     PreparedStatement pstmt = null;
-    
+
     try {
       Class.forName("oracle.jdbc.OracleDriver");
 

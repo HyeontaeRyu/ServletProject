@@ -43,3 +43,4 @@ bin/
 
 src/main/webapp/WEB-INF/context.xml
 src/main/webapp/conf/db.properties
+/src/main/webapp/WEB-INF/conf/
