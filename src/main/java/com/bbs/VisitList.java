@@ -70,12 +70,13 @@ public class VisitList extends HttpServlet {
 
           out.println("<table border=1 align=center width=500>");
           out.println("<tr>");
-          out.println("<th width=50>번호</th><td width=50>" + no + "</td>");
-          out.println("<th width=70>작성자</th><td width=180>" + writer + "</td>");
-          out.println("<th width=70>작성일</th><td width=100>" + regdate + "</td>");
+          out.println("<th width=150>번호</th><td width=50>" + no + "</td>");
+          out.println("<th width=170>작성자</th><td width=180>" + writer + "</td>");
+          out.println("<th width=170>작성일</th><td width=100>" + regdate + "</td>");
           out.println(
               "<th width=50>내용</th><td colspan=5>&nbsp;<textarea name='memo' rows='3' cols='50'>"
                   + memo + "</textarea></td>");
+          out.println("<td width=50>" + "<form action='visitDelete' method='post'><input type='hidden' name='no' value='"+ no + "'><input type='submit' value='삭제'></form></td>");
 
           out.println("</table>");
           out.println("<p>");

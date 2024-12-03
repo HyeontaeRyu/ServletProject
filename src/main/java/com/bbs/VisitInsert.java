@@ -21,6 +21,7 @@ public class VisitInsert extends HttpServlet {
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     Properties properties = new Properties();
+
     try (InputStream input = getServletContext().getResourceAsStream(
         "/WEB-INF/conf/db.properties")) {
       if (input == null) {
