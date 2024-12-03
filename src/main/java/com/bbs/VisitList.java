@@ -1,21 +1,42 @@
 package com.bbs;
 
-import jakarta.servlet.*;
+import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.*;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.*;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
 
 @WebServlet("/VisitList")
 public class VisitList extends HttpServlet {
 
   private static final long serialVersionUID = 1L;
 
-  protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
 
-  response.setContentType("text/html;charset=UTF-8");
+    response.setContentType("text/html;charset=UTF-8");
+    Properties properties = new Properties();
+    try (InputStream input = getServletContext().getResourceAsStream(
+        "/WEB-INF/conf/db.properties")) {
+      if (input == null) {
+        throw new IOException("Unable to find db.properties");
+      }
+      properties.load(input);
+    }
+    String driver = properties.getProperty("driver");
+    String url = properties.getProperty("url");
+    String username = properties.getProperty("username");
+    String password = properties.getProperty("password");
     String walletPath = getServletContext().getRealPath("/WEB-INF/lib/Wallet_maindb");
     System.setProperty("oracle.net.tns_admin", walletPath);
     System.setProperty("oracle.jdbc.fanEnabled", "false");
@@ -35,9 +56,7 @@ public class VisitList extends HttpServlet {
       try {
         Class.forName("oracle.jdbc.OracleDriver");
 
-        conn = DriverManager.getConnection(
-            "jdbc:oracle:thin:@maindb_high",
-            "admin", "Globalinorcl1");
+        conn = DriverManager.getConnection(url, username, password);
 
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
@@ -50,10 +69,12 @@ public class VisitList extends HttpServlet {
 
           out.println("<table border=1 align=center width=500>");
           out.println("<tr>");
-          out.println("<th width=50>번호</th><td width=50>"+no+"</td>");
-          out.println("<th width=70>작성자</th><td width=180>"+writer+"</td>");
-          out.println("<th width=70>작성일</th><td width=100>"+regdate+"</td>");
-          out.println("<th width=50>내용</th><td colspan=5>&nbsp;<textarea name='memo' rows='3' cols='50'>"+memo+"</textarea></td>");
+          out.println("<th width=50>번호</th><td width=50>" + no + "</td>");
+          out.println("<th width=70>작성자</th><td width=180>" + writer + "</td>");
+          out.println("<th width=70>작성일</th><td width=100>" + regdate + "</td>");
+          out.println(
+              "<th width=50>내용</th><td colspan=5>&nbsp;<textarea name='memo' rows='3' cols='50'>"
+                  + memo + "</textarea></td>");
 
           out.println("</table>");
           out.println("<p>");
@@ -103,10 +124,11 @@ public class VisitList extends HttpServlet {
 
     }
   }
+
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-  processRequest(request, response);
+    processRequest(request, response);
   }
 
   @Override
