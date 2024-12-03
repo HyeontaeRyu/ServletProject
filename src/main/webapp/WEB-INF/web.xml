@@ -3,20 +3,75 @@
   version="6.0"
   xmlns="https://jakarta.ee/xml/ns/jakartaee"
   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-  <servlet>
-    <servlet-name>test</servlet-name>
-    <servlet-class>com.test.TestServlet</servlet-class>
-  </servlet>
+  <!-- <listener>
+    <listener-class>com.test2.ContextListenerImpl</listener-class>
+  </listener> -->
+  <!--
+
+    <filter>
+      <filter-name>MyFilter</filter-name>
+      <filter-class>com.test2.MyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+      <filter-name>MyFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>
+  -->
+
+  <context-param>
+    <param-name>company</param-name>
+    <param-value>GlobalIn(주)</param-value>
+  </context-param>
+  <context-param>
+    <param-name>manager</param-name>
+    <param-value>Jeoungsub Kim</param-value>
+  </context-param>
+
   <servlet>
     <servlet-name>sport</servlet-name>
     <servlet-class>com.test.SportsServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
+  <servlet>
+    <servlet-name>member</servlet-name>
+    <servlet-class>com.test.MemberServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
+    <servlet-class>com.test.TestServlet</servlet-class>
+  </servlet>
+  <!--<servlet>
+    <servlet-name>initParam</servlet-name>
+    <servlet-class>com.sample.initParam</servlet-class>
+    <init-param>
+      <param-name>tel</param-name>
+      <param-value>010-1111-1111</param-value>
+    </init-param>
+    <init-param>
+      <param-name>email</param-name>
+      <param-value>hong@naver.com</param-value>
+    </init-param>
+  </servlet>-->
+  <servlet-mapping>
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>sport</servlet-name>
     <url-pattern>/sport</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <!--
+  <servlet-mapping>
+    <servlet-name>initParam</servlet-name>
+    <url-pattern>/initParam</url-pattern>
+  </servlet-mapping>
+  -->
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>

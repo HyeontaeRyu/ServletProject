@@ -17,12 +17,19 @@ ext {
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
 dependencies {
+    implementation 'org.apache.tomcat:tomcat-dbcp:10.1.33'
     implementation 'jakarta.servlet:jakarta.servlet-api:6.0.0'
+    implementation 'com.oracle.database.security:oraclepki:23.6.0.24.10'
+    implementation 'com.oracle.database.security:osdt_cert:21.16.0.0'
+    implementation 'com.oracle.database.security:osdt_core:21.16.0.0'
+    implementation 'com.oracle.database.jdbc:ojdbc8:23.6.0.24.10'
+    implementation 'com.oracle.database.jdbc:ucp:23.6.0.24.10'
+
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }

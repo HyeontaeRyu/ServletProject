@@ -19,7 +19,7 @@
         <ul>
             <li>
                 <label>아이디</label>
-                <input type="text" name="userid">
+                <input type="text" name="user">
             </li>
 
             <li>
