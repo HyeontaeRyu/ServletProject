@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'war'
+    id 'com.google.cloud.tools.jib' version '3.4.4'
 }
 
 group 'org.example'
@@ -29,6 +30,11 @@ dependencies {
     implementation 'com.oracle.database.security:osdt_core:21.16.0.0'
     implementation 'com.oracle.database.jdbc:ojdbc8:23.6.0.24.10'
     implementation 'com.oracle.database.jdbc:ucp:23.6.0.24.10'
+    implementation 'org.apache.commons:commons-dbcp2:2.13.0'
+    implementation 'org.apache.commons:commons-collections4:4.5.0-M2'
+    implementation 'org.apache.commons:commons-pool2:2.12.0'
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor('org.projectlombok:lombok:1.18.36')
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
@@ -36,4 +42,23 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jib {
+    from {
+        image = 'openjdk:11-jre-slim'
+    }
+    to {
+        image = '985539778210.dkr.ecr.ap-northeast-1.amazonaws.com/test'
+        tags = ['latest', "${project.version}".toString()]
+        credHelper {
+            helper = 'ecr-login'
+
+        }
+    }
+    container {
+        jvmFlags = ['-Xms512m', '-Xmx512m', '-Dfile.encoding=UTF-8', '-Dserver.port=80', '-Dspring.profiles.active=prod']
+        creationTime = 'USE_CURRENT_TIMESTAMP'
+        ports = ['80']
+    }
 }
