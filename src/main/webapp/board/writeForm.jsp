@@ -58,10 +58,10 @@
         <tr>
             <td width="70" bgcolor="<%=value_c%>" align="center">제목</td>
             <td width="330">
-                <% if (request.getParameter("num") != null) { %>
+                <% if (request.getParameter("num") == null) { %>
                 <input type="text" size="50" maxlength="50" name="subject">
                 <% } else { %>
-                <input type="text" size="50" maxlength="50" name="subject" value="답변">
+                <input type="text" size="50" maxlength="50" name="subject" value="[답변]">
                 <% } %>
             </td>
         </tr>

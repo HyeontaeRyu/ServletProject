@@ -36,7 +36,7 @@
 <body bgcolor="<%=bodyback_c%>">
 <div align="center"><b>글 목록(전체 글 : <%=count%>)</b>
     <table width="700">
-        <tr align="right">
+        <tr align="right" bgcolor="<%=value_c%>">
             <td><a href="writeForm.jsp">글쓰기</a></td>
         </tr>
     </table>
@@ -68,15 +68,23 @@
             <td align="center" width="50"><%=number--%>
             </td>
             <td width="250"><a
-                    href="content.jsp?num=<%=article.getNum()%>"><%=article.getSubject()%>
-            </a></td>
-            <td align="center"><%=article.getWriter()%>
+                    href="content.jsp?num=<%=article.getNum()%>">&pageNum1;
+                <%=article.getSubject()%>
+            </a>
+                <% if (article.getReadCount() >= 20) { %>
+                <img src="img/hot.gif" width="20" height="9">
+                <% } %>
             </td>
-            <td align="center"><%=sdf.format(article.getRegDate())%>
+            <td align="center" width="100">
+                <a href="mailto:<%=article.getEmail()%>"><%=article.getWriter()%>
+                </a>
             </td>
-            <td align="center"><%=article.getReadCount()%>
+            <td align="center" width="150"><%=sdf.format(article.getRegDate())%>
             </td>
-            <td align="center"><%=article.getIp()%>
+            <td align="center" width="50"><%=article.getReadCount()%>
+            </td>
+            <td align="center" width="100"><%=article.getIp()%>
+            </td>
         </tr>
         <%
             }

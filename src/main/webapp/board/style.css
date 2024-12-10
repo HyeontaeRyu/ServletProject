@@ -3,7 +3,7 @@ body, table, tr, td, select, div, form {
   font-size: 9pt;
   color: black;
   line-height: 160%;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 textarea, input {
@@ -14,7 +14,7 @@ textarea, input {
   font-size: 9pt;
   color: black;
   background-color: white;
-  font-family: serif;
+  font-family: sans-serif;
 }
 
 a:link {
