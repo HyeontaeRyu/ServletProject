@@ -3,6 +3,8 @@ package com.board;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BoardDAO {
 
@@ -108,4 +110,86 @@ public class BoardDAO {
     }
 
   }
+
+  public int getArticleCount() {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+
+    int x = 0;
+
+    try {
+      conn = ConnUtill.getConnection();
+      pstmt = conn.prepareStatement("select count(*) from board");
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+        x = rs.getInt(1);
+      }
+
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      if (rs != null) {
+        try {
+          rs.close();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    return x;
+  }
+
+  public List<BoardDTO> getArticles() {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    List<BoardDTO> articleList = null;
+
+    String sql = null;
+
+    try {
+      conn = ConnUtill.getConnection();
+      sql = "select * from (select * from board order by num desc)";
+
+      pstmt = conn.prepareStatement(sql);
+      rs = pstmt.executeQuery();
+
+      if (rs.next()) {
+        articleList = new ArrayList<BoardDTO>();
+
+        do {
+          BoardDTO article = new BoardDTO();
+          article.setNum(rs.getInt("num"));
+          article.setWriter(rs.getString("writer"));
+          article.setEmail(rs.getString("email"));
+          article.setSubject(rs.getString("subject"));
+          article.setPass(rs.getString("pass"));
+          article.setRef(rs.getInt("ref"));
+          article.setStep(rs.getInt("step"));
+          article.setDepth(rs.getInt("depth"));
+          article.setReadCount(rs.getInt("readcount"));
+          article.setRegDate(rs.getTimestamp("regdate"));
+          article.setContent(rs.getString("content"));
+          article.setIp(rs.getString("ip"));
+
+          articleList.add(article);
+        } while (rs.next());
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    } finally {
+      if (rs != null) {
+        try {
+          rs.close();
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+    }
+    return articleList;
+  }
+
+
 }
