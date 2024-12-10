@@ -1,43 +1,70 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 24. 12. 6.
-  Time: 오후 12:36
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+
+<%
+    String loginID = (String) session.getAttribute("loginID");
+%>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>login</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<form action="#" method="post">
+<%
+    if (loginID != null) {
+%>
+<table border="1" width="300">
+    <tr>
+        <td colspan="3" align="center"><%=loginID %>님 환영합니다.</td>
+    </tr>
+
+    <tr>
+        <td align="center" width="100">
+            <a href="modifyForm.jsp">회원정보수정</a>
+        </td>
+        <td align="center" width="100">
+            <a href="deleteForm.jsp">회원탈퇴</a>
+        </td>
+        <td align="center" width="100">
+            <a href="logout.jsp">로그아웃</a>
+        </td>
+    </tr>
+
+</table>
+<% } else { %>
+<form action="loginProc.jsp" method="post">
     <table width="300" border="1">
         <tr>
             <td colspan="2" align="center">회원 로그인</td>
         </tr>
+
         <tr>
             <td width="100" align="right"> 아이디</td>
             <td width="200">
                 &nbsp;&nbsp;<input type="text" name="id" size="20">
             </td>
         </tr>
+
         <tr>
             <td width="100" align="right"> 비밀번호</td>
             <td width="200">
                 &nbsp;&nbsp;<input type="password" name="pass" size="20">
             </td>
         </tr>
+
         <tr>
             <td colspan="2" align="center">
-                <input type="submit" value="로그인">&nbsp;&nbsp;
-                <input type="button" value="회원가입" onclick="window.location='regForm.jsp'">&nbsp;&nbsp;
+                <input type="submit" value="로그인"> &nbsp;&nbsp;
+                <input type="button" value="회원가입"
+                       onclick="javascript:window.location='regForm.jsp'">
             </td>
         </tr>
-
     </table>
 </form>
+<%} %>
 
 </body>
 </html>

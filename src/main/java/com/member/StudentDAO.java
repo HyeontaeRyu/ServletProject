@@ -113,7 +113,7 @@ public class StudentDAO {
 
     try {
       conn = getConnection();
-      String strQuery = "insert into student values(?,?,?,?,?,?,?,?,?,?,?)";
+      String strQuery = "insert into student values(?,?,?,?,?,?,?,?,?,?)";
       pstmt = conn.prepareStatement(strQuery);
       pstmt.setString(1, dto.getId());
       pstmt.setString(2, dto.getPass());
@@ -240,7 +240,7 @@ public class StudentDAO {
     PreparedStatement pstmt = null;
 
     String sql = "update student set pass=?, phone1=?, phone2=?, phone3=?, "
-        + "email=?, zipcode=?, address1=? address2=? where id=?";
+        + "email=?, zipcode=?, address1=?, address2=? where id=?";
 
     try {
 

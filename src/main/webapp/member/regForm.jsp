@@ -34,15 +34,6 @@
 
 
         <tr>
-            <td align="right">비밀번호</td>
-            <td><input type="password" name="pass"></td>
-        </tr>
-
-        <tr>
-            <td align="right">비밀번호 확인</td>
-            <td><input type="password" name="repass"></td>
-        </tr>
-        <tr>
             <td align="right">이름</td>
             <td><input type="text" name="name"></td>
         </tr>
