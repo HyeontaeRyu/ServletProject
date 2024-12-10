@@ -7,7 +7,7 @@
     <title>회원가입</title>
     <link href="style.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="script.js"></script>
-    
+
 </head>
 <body>
 <form action="regProc.jsp" method="post" name="regForm">
@@ -32,10 +32,6 @@
             <td><input type="password" name="repass"></td>
         </tr>
 
-        <tr>
-            <td align="right">이름</td>
-            <td><input type="text" name="name"></td>
-        </tr>
 
         <tr>
             <td align="right">비밀번호</td>
@@ -46,6 +42,11 @@
             <td align="right">비밀번호 확인</td>
             <td><input type="password" name="repass"></td>
         </tr>
+        <tr>
+            <td align="right">이름</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+
 
         <tr>
             <td align="right">전화번호</td>
@@ -87,7 +88,7 @@
 
         <tr>
             <td colspan="2">
-                <input type="button" value="회원가입" onclick="#"> &nbsp;&nbsp;
+                <input type="button" value="회원가입" onclick="inputCheck()">
                 <input type="reset" value="다시입력">
             </td>
 

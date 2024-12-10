@@ -1,66 +1,33 @@
 @charset "UTF-8";
-
-BODY {
-    FONT-SIZE: 9pt;
-    COLOR: black;
-    LINE-HEIGHT: 160%;
+body, table, tr, td, select, div, form {
+  font-size: 9pt;
+  color: black;
+  line-height: 160%;
+  font-family: serif;
 }
 
-TD {
-    FONT-SIZE: 9pt;
-    COLOR: black;
-    LINE-HEIGHT: 160%;
+textarea, input {
+  border-right: 1px solid #999999;
+  border-top: 1px solid #999999;
+  border-left: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+  font-size: 9pt;
+  color: black;
+  background-color: white;
+  font-family: serif;
 }
 
-SELECT {
-    FONT-SIZE: 9pt;
-    COLOR: black;
-    LINE-HEIGHT: 160%;
+a:link {
+  text-decoration: none;
+  color: #696969;
 }
 
-DIV {
-    FONT-SIZE: 9pt;
-    COLOR: black;
-    LINE-HEIGHT: 160%;
+a:hover {
+  text-decoration: yes;
+  color: #66CCFF;
 }
 
-FORM {
-    FONT-SIZE: 9pt;
-    COLOR: black;
-    LINE-HEIGHT: 160%;
-}
-
-TEXTAREA {
-    BORDER-RIGHT: 1px solid #999999;
-    BORDER-TOP: 1px solid #999999;
-    FONT-SIZE: 9pt;
-    BORDER-LEFT: 1px solid #999999;
-    COLOR: BLACK;
-    BORDER-BOTTOM: 1px solid #999999;
-    BACKGROUND-COLOR: white;
-}
-
-INPUT {
-    BORDER-RIGHT: 1px solid #999999;
-    BORDER-TOP: 1px solid #999999;
-    FONT-SIZE: 9pt;
-    BORDER-LEFT: 1px solid #999999;
-    COLOR: BLACK;
-    BORDER-BOTTOM: 1px solid #999999;
-    BACKGROUND-COLOR: white;
-}
-
-A:link {
-    text-decoration: none;
-    color: #696969;  /* 색상 코드 수정 */
-}
-
-A:hover {
-    text-decoration: underline;  /* 수정: 'yes'는 올바른 값이 아님 */
-    color: #66CCFF;  /* 색상 코드 수정 */
-}
-
-A:visited {
-    text-decoration: none;
-    color: #330066;  /* 색상 코드 수정 */
+a:visited {
+  text-decoration: none;
+  color: #330066;
 }
