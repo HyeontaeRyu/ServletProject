@@ -14,3 +14,10 @@ create table board
     ip        varchar2(20)              not null,
     constraint board_pk primary key (num)
 )
+
+create sequence board_seq
+    start with 1
+    increment by 1
+    nomaxvalue
+    nocache
+    nocycle;
