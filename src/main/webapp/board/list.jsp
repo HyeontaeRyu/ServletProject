@@ -68,7 +68,7 @@
             <td align="center" width="50"><%=number--%>
             </td>
             <td width="250"><a
-                    href="content.jsp?num=<%=article.getNum()%>">&pageNum1;
+                    href="content.jsp?num=<%=article.getNum()%>&pageNum=1;">
                 <%=article.getSubject()%>
             </a>
                 <% if (article.getReadCount() >= 20) { %>

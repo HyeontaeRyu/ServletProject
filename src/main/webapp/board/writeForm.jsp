@@ -37,26 +37,26 @@
     <input type="hidden" name="depth" value="<%=depth%>">
 
 
-    <table width="400" border="1" cellpadding="0" cellspacing="0" align="center"
+    <table width="430" border="1" cellpadding="0" cellspacing="0" align="center"
            bgcolor="<%=bodyback_c%>">
         <tr>
             <td align="right" colspan="2" bgcolor="<%=value_c%>"><a href="list.jsp">글 목록</a></td>
         </tr>
 
         <tr>
-            <td width="70" bgcolor="<%=value_c%>" align="center">이름</td>
+            <td width="100" bgcolor="<%=value_c%>" align="center">이름</td>
             <td width="330">
                 <input type="text" size="12" maxlength="12" name="writer">
             </td>
         </tr>
         <tr>
-            <td width="70" bgcolor="<%=value_c%>" align="center">이메일</td>
+            <td width="100" bgcolor="<%=value_c%>" align="center">이메일</td>
             <td width="330">
                 <input type="text" size="40" maxlength="40" name="email">
             </td>
         </tr>
         <tr>
-            <td width="70" bgcolor="<%=value_c%>" align="center">제목</td>
+            <td width="100" bgcolor="<%=value_c%>" align="center">제목</td>
             <td width="330">
                 <% if (request.getParameter("num") == null) { %>
                 <input type="text" size="50" maxlength="50" name="subject">
@@ -66,15 +66,15 @@
             </td>
         </tr>
         <tr>
-            <td width="70" bgcolor="<%=value_c%>" align="center">내용</td>
+            <td width="100" bgcolor="<%=value_c%>" align="center">내용</td>
             <td width="330">
                 <textarea name="content" cols="50" rows="15"></textarea>
             </td>
         </tr>
         <tr>
-            <td width="70" bgcolor="<%=value_c%>" align="center">비밀번호</td>
+            <td width="100" bgcolor="<%=value_c%>" align="center">비밀번호</td>
             <td width="330">
-                <input type="password" size="10" maxlength="10" name="pass">
+                <input type="password" size="8" maxlength="12" name="pass">
             </td>
         </tr>
 
