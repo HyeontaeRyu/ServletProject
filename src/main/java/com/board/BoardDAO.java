@@ -365,6 +365,8 @@ public class BoardDAO {
     return result;
   }
 
+
+  //검색한 내용이 몇개인지를 반환함(what:검색조건, content: 검색내용)
   public int getArticleCount(String what, String content) {
 
     Connection con = null;
@@ -482,5 +484,6 @@ public class BoardDAO {
     }
     return articleList;
   }
+
 
 }
